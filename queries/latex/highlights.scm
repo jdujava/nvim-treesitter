@@ -1,5 +1,5 @@
 ; General syntax
-(command_name) @function
+(command_name) @function @nospell
 
 (text_mode
   [
@@ -104,7 +104,7 @@
 
 (citation
   command: _ @function.macro
-  keys: (curly_group_text_list) @markup.link)
+  keys: (curly_group_text_list) @markup.link @nospell)
 
 (glossary_entry_definition
   command: _ @function.macro
@@ -256,7 +256,7 @@
   command: (command_name) @_name
   .
   arg: (curly_group
-    (_) @markup.link.url))
+    (_) @markup.link.url @nospell))
   (#any-of? @_name "\\url" "\\href"))
 
 ; File inclusion commands
@@ -299,32 +299,24 @@
 
 (text) @spell
 
-(inline_formula) @nospell
-
-(displayed_equation) @nospell
-
-(key_value_pair) @nospell
-
 (generic_environment
   begin: _ @nospell
   end: _ @nospell)
 
-(citation
-  keys: _ @nospell)
-
-(command_name) @nospell
-
-(label_definition) @nospell
-
-(label_reference) @nospell
-
-(label_reference_range) @nospell
+[
+  (key_value_pair)
+  (color_definition)
+  (color_reference)
+  (label_definition)
+  (label_reference)
+  (label_reference_range)
+] @nospell
 
 ; Math
 [
   (displayed_equation)
   (inline_formula)
-] @markup.math
+] @markup.math @nospell
 
 [
   (line_comment)
