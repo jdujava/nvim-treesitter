@@ -14,8 +14,7 @@
   command: _ @function)
 
 (key_value_pair
-  key: (_) @variable.parameter
-  value: (_))
+  key: (_) @variable.parameter)
 
 [
   (brack_group)
@@ -231,19 +230,19 @@
 
 ((generic_command
   command: (command_name) @_name
-  arg: (curly_group
+  arg: (curly_group_generic_arg
     (text) @markup.heading))
   (#eq? @_name "\\frametitle"))
 
 ((generic_command
   command: (command_name) @_name
-  arg: (curly_group
+  arg: (curly_group_generic_arg
     (_) @markup.italic))
   (#any-of? @_name "\\emph" "\\textit" "\\mathit"))
 
 ((generic_command
   command: (command_name) @_name
-  arg: (curly_group
+  arg: (curly_group_generic_arg
     (_) @markup.strong))
   (#any-of? @_name "\\textbf" "\\mathbf"))
 
